@@ -1,0 +1,187 @@
+#Searchservice_select {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#Searchservice_div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: #F5F5F5;
+}
+
+#Searchservice_header {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    height: 100px;
+}
+
+#form_searchServcice {
+    display: flex;
+    width: 90%;
+    height: 27%;
+    justify-content: center;
+}
+
+
+#form_searchServcice_div_inputlabel {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+#input_refService {
+    border: 1px solid #d1efff;
+    border-radius: 10px;
+
+    /* background-color: rgba(0, 0, 0, 0.157); */
+}
+
+#label_refService {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: -25px;
+    width: auto;
+}
+
+#label_refService>img {
+    width: 14px;
+    height: 14px;
+}
+
+#search_result_content {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Search_Result_Map {
+    display: flex;
+    background-color: #ffffffcc;
+    box-shadow: 0px 0px 3px 0px #d1efff, 0px 0px 9px 1px #d1efff;
+    border-radius: 10px;
+    height: 100px;
+    margin: 7px;
+    padding: 11px;
+}
+
+#Search_Result_divtheimg {
+    width: 41%;
+    height: auto;
+    margin: 2px;
+    margin-right: 35px;
+}
+
+#Search_Result_img {
+    border-radius: 10px;
+}
+
+.Search_Result_show {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    height: 100px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.stars_content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 43%;
+}
+
+.react-stars {
+    display: flex;
+}
+
+.react-stars>span {
+    width: 10px;
+}
+
+.short-container {
+    width: 14%;
+    height: 31px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.short-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #d1efff;
+    box-shadow: 0px 0px 3px 0px #d1efff, 0px 0px 9px 1px #d1efff;
+    border-radius: 14px;
+}
+
+.ServiceSearch_fullscreen-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #d1baba;
+}
+
+.ServiceSearch_input-container {
+    width: 80%;
+    height: 84px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    border: 1px solid white;
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.ServiceSearch_input-container>input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(52, 35, 35);
+    margin: 10px;
+    background-color: #ffffff;
+    /* Reemplaza #ffffff con el color de fondo del contenedor */
+}
+
+.ServiceSearch_input-container>input[type="checkbox"]:checked {
+    background-color: #11db40;
+    /* Reemplaza #000000 con el color de fondo que deseas cuando se selecciona el checkbox */
+    border-color: #11db40;
+    /* Reemplaza #000000 con el color del borde que deseas cuando se selecciona el checkbox */
+}
+
+.ServiceSearch_input-container>label {
+    display: flex;
+    align-items: center;
+}
