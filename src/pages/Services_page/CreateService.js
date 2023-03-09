@@ -3,16 +3,19 @@ import { useNavigate } from "react-router-dom"
 import TextareaAutosize from "react-textarea-autosize"
 import service from "../../services/service"
 import "../../static/styles/Service/Create_service.css"
+
 export function Create_Service() {
     let navigate = useNavigate()
+
     const [Inputs, setInputs] = useState({
-        title: "",
+        nameService: "",
         description: "",
         zone: "",
-        price: "",
-        time_unit: "",
-        time_magnitud: ""
+        price: "123",
+        time_unit: "1",
+        time_magnitud: "/d",
     })
+    const [selectedFile, setSelectedFile] = useState("");
 
     useEffect(() => {
         let loggedUser = window.localStorage.getItem("loggedAppUser")
@@ -26,21 +29,36 @@ export function Create_Service() {
 
     const HandleSubmit = async (e) => {
         e.preventDefault()
-        //  await service.createServiceBasic()
+            const formData = new FormData();
 
-        setInputs({
-            title: "",
-            description: "",
-            zone: "",
-            price: "",
-            time_unit: "",
-            time_magnitud: ""
-        })
+            formData.append("nameService", Inputs.nameService);
+            formData.append("description", Inputs.description);
+            formData.append("zone", Inputs.zone);
+            formData.append("price", Inputs.price);
+            formData.append("time_unit", Inputs.time_unit);
+            formData.append("time_magnitud", Inputs.time_magnitud);
+            formData.append("image", selectedFile);
+
+            const resCreateServiceBasic =await service.createServiceBasic(formData)
+            // setInputs({
+            //     nameService: "",
+            //     description: "",
+            //     zone: "",
+            //     price: "",
+            //     time_unit: "",
+            //     time_magnitud: ""
+            // })
+
     }
+    const handleFileChange = (e) => {
+        setSelectedFile(e.target.files[0]);
+    }
+
     const HandleChange = (e) => {
+        const { name, value } = e.target;
         setInputs({
             ...Inputs,
-            [e.target.name]: e.target.value,
+            [name]: value,
         })
     }
 
@@ -52,8 +70,8 @@ export function Create_Service() {
                     <label htmlFor="Create_Service_title">Titulo</label>
                     <TextareaAutosize
                         onChange={HandleChange}
-                        name="title"
-                        value={Inputs.title}
+                        name="nameService"
+                        value={Inputs.nameService}
                         type="text"
                         style={{
                             width: "100%",
@@ -165,6 +183,16 @@ export function Create_Service() {
                         maxRows={6}
                         autoFocus
                         placeholder="Ingrese el titulo"
+                        id="Create_Service_title"
+                    />
+                </div>
+                <div className="Create_Service_inputs">
+                    <label htmlFor="Create_Service_title">Titulo</label>
+                    <input
+                        onChange={handleFileChange}
+                        name="image"
+                        type="file"
+                        placeholder="Ingrese una imagen para el servicio"
                         id="Create_Service_title"
                     />
                 </div>

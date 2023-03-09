@@ -48,7 +48,7 @@ export function Home() {
                                 <div onClick={toggleMenu} id="img_perfil_home_ul">P</div>
                                 <li><Link to="/SubscriptioCreate">Subscriptio</Link></li>
                                 <li><Link to="/Perfil">Perfil</Link></li>
-                                <li><Link to="/a">Inicio</Link> </li>
+                                <li><Link to="/serviceCreate">crear servicio</Link> </li>
                             </ul>
                         )}
                         <div onClick={toggleMenu} id="img_perfil_home">P</div>

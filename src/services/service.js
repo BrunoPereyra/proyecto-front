@@ -68,26 +68,14 @@ const GetNotes = async (newObject) => {
     return res
 }
 
-const createServiceBasic = async (newObject) => {
-    const formData = new FormData()
-
-    formData.append('image', newObject.image)
-    formData.append('nameService', newObject.nameService)
-    formData.append('description', newObject.description)
-    formData.append('zone', newObject.zone)
-    formData.append('price', newObject.price)
-    formData.append('time_unit', newObject.time_unit)
-    formData.append('time_magnitud', newObject.time_magnitud)
-
-
+const createServiceBasic = async (formData) => {
 
     const config = {
         headers: {
-            Authorization: `bearer ${token}`,
-            'Content-Type': 'multipart/form-data'
+            "Authorization": `bearer ${token}`,
+            "Content-Type": 'multipart/form-data'
         }
     }
-
     try {
         const res = await axios.post(
             `${baseUrl}/createServiceBasic`,
