@@ -16,6 +16,32 @@ export function Create_Service() {
         time_magnitud: "/d",
     })
     const [selectedFile, setSelectedFile] = useState("");
+    const [animation, setAnimation] = useState(true);
+
+    const animationClick = () => {
+        setAnimation(!animation);
+        const isAnimation = !animation
+        if (isAnimation === false) {
+            const nameServicediv = document.querySelector('.nameService');
+            const descriptiondiv = document.querySelector('.description');
+            const pricediv = document.querySelector('.price');
+            const zonediv = document.querySelector('.zone');
+            const time_unitdiv = document.querySelector('.time_unit');
+            const time_magnituddiv = document.querySelector('.time_magnitud');
+            const imagediv = document.querySelector('.image');
+
+            const addclass = [nameServicediv, descriptiondiv, pricediv, zonediv, time_magnituddiv, time_unitdiv, imagediv]
+            let delay = 50;
+            for (let i = 0; i < addclass.length; i++) {
+                setTimeout(() => {
+                    const e = addclass[i];
+                    e.classList.add('Create_Service_inputs_animation');
+                }, delay);
+                delay += 50;
+            }
+        }
+
+    };
 
     useEffect(() => {
         let loggedUser = window.localStorage.getItem("loggedAppUser")
@@ -29,25 +55,25 @@ export function Create_Service() {
 
     const HandleSubmit = async (e) => {
         e.preventDefault()
-            const formData = new FormData();
+        const formData = new FormData();
 
-            formData.append("nameService", Inputs.nameService);
-            formData.append("description", Inputs.description);
-            formData.append("zone", Inputs.zone);
-            formData.append("price", Inputs.price);
-            formData.append("time_unit", Inputs.time_unit);
-            formData.append("time_magnitud", Inputs.time_magnitud);
-            formData.append("image", selectedFile);
+        formData.append("nameService", Inputs.nameService);
+        formData.append("description", Inputs.description);
+        formData.append("zone", Inputs.zone);
+        formData.append("price", Inputs.price);
+        formData.append("time_unit", Inputs.time_unit);
+        formData.append("time_magnitud", Inputs.time_magnitud);
+        formData.append("image", selectedFile);
 
-            const resCreateServiceBasic =await service.createServiceBasic(formData)
-            // setInputs({
-            //     nameService: "",
-            //     description: "",
-            //     zone: "",
-            //     price: "",
-            //     time_unit: "",
-            //     time_magnitud: ""
-            // })
+        const resCreateServiceBasic = await service.createServiceBasic(formData)
+        // setInputs({
+        //     nameService: "",
+        //     description: "",
+        //     zone: "",
+        //     price: "",
+        //     time_unit: "",
+        //     time_magnitud: ""
+        // })
 
     }
     const handleFileChange = (e) => {
@@ -66,7 +92,9 @@ export function Create_Service() {
     return (
         <section id="Create_Service_section">
             <form onSubmit={HandleSubmit} id="Create_Service_form">
-                <div className="Create_Service_inputs">
+                <div className={
+                    "Create_Service_inputs nameService"
+                }>
                     <label htmlFor="Create_Service_title">Titulo</label>
                     <TextareaAutosize
                         onChange={HandleChange}
@@ -80,13 +108,17 @@ export function Create_Service() {
                             overflow: "auto"
                         }}
                         minRows={1}
-                        maxRows={6}
+                        maxRows={5}
                         autoFocus
-                        placeholder="Ingrese el titulo"
+                        placeholder="Nombre del servicio "
                         id="Create_Service_title"
+                        className="TextareaAutosize_inputs"
+
                     />
                 </div>
-                <div className="Create_Service_inputs">
+                <div className={
+                    "Create_Service_inputs description"
+                }>
                     <label htmlFor="Create_Service_title">Titulo</label>
                     <TextareaAutosize
                         onChange={HandleChange}
@@ -102,11 +134,15 @@ export function Create_Service() {
                         minRows={1}
                         maxRows={6}
                         autoFocus
-                        placeholder="Ingrese el titulo"
+                        placeholder="Descripcion del servicio"
                         id="Create_Service_title"
+                        className="TextareaAutosize_inputs"
+
                     />
                 </div>
-                <div className="Create_Service_inputs">
+                <div className={
+                    "Create_Service_inputs price"
+                }>
                     <label htmlFor="Create_Service_title">Titulo</label>
                     <TextareaAutosize
                         onChange={HandleChange}
@@ -122,11 +158,14 @@ export function Create_Service() {
                         minRows={1}
                         maxRows={6}
                         autoFocus
-                        placeholder="Ingrese el titulo"
+                        placeholder="Precio del servicio"
                         id="Create_Service_title"
+                        className="TextareaAutosize_inputs"
                     />
                 </div>
-                <div className="Create_Service_inputs">
+                <div className={
+                    "Create_Service_inputs zone"
+                }>
                     <label htmlFor="Create_Service_title">Titulo</label>
                     <TextareaAutosize
                         onChange={HandleChange}
@@ -142,11 +181,15 @@ export function Create_Service() {
                         minRows={1}
                         maxRows={6}
                         autoFocus
-                        placeholder="Ingrese el titulo"
+                        placeholder="Zona en que da el servicio"
                         id="Create_Service_title"
+                        className="TextareaAutosize_inputs"
+
                     />
                 </div>
-                <div className="Create_Service_inputs">
+                <div className={
+                    "Create_Service_inputs time_unit"
+                }>
                     <label htmlFor="Create_Service_title">Titulo</label>
                     <TextareaAutosize
                         onChange={HandleChange}
@@ -162,11 +205,15 @@ export function Create_Service() {
                         minRows={1}
                         maxRows={6}
                         autoFocus
-                        placeholder="Ingrese el titulo"
+                        placeholder="time_unit"
                         id="Create_Service_title"
+                        className="TextareaAutosize_inputs"
+
                     />
                 </div>
-                <div className="Create_Service_inputs">
+                <div className={
+                    "Create_Service_inputs time_magnitud"
+                }>
                     <label htmlFor="Create_Service_title">Titulo</label>
                     <TextareaAutosize
                         onChange={HandleChange}
@@ -182,11 +229,15 @@ export function Create_Service() {
                         minRows={1}
                         maxRows={6}
                         autoFocus
-                        placeholder="Ingrese el titulo"
+                        placeholder="time_magnitud"
                         id="Create_Service_title"
+                        className="TextareaAutosize_inputs"
+
                     />
                 </div>
-                <div className="Create_Service_inputs">
+                <div className={
+                    "Create_Service_inputs image"
+                }>
                     <label htmlFor="Create_Service_title">Titulo</label>
                     <input
                         onChange={handleFileChange}
@@ -196,8 +247,11 @@ export function Create_Service() {
                         id="Create_Service_title"
                     />
                 </div>
-                <button>s</button>
             </form>
+            <button onClick={animationClick}> {"-->"} </button>
+            <div>
+                a
+            </div>
         </section>
     )
 } 
