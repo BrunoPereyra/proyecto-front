@@ -5,14 +5,20 @@ var token = null
 const setToken = (newObject) => {
     token = newObject
 }
-const createUser = async (newObject) => {
+const createUser = async (formData) => {
+
     const config = {
         headers: {
-            Authorization: `bearer ${token}`
+            // "Authorization": `bearer ${token}`,
+            "Content-Type": 'multipart/form-data'
         }
     }
-    const res = await axios.post(`${baseUrl}/signup`, newObject, config)
-    return res
+        const res = await axios.post(
+            `${baseUrl}/signup`,
+            formData,
+            config
+        )
+        return res
 }
 const LoginUser = async (newObject) => {
     const config = {
@@ -76,17 +82,12 @@ const createServiceBasic = async (formData) => {
             "Content-Type": 'multipart/form-data'
         }
     }
-    try {
         const res = await axios.post(
             `${baseUrl}/createServiceBasic`,
             formData,
             config
         )
         return res
-
-    } catch (error) {
-        return error
-    }
 
 }
 

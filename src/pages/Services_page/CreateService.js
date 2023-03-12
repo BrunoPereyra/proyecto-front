@@ -65,7 +65,14 @@ export function Create_Service() {
         formData.append("time_magnitud", Inputs.time_magnitud);
         formData.append("image", selectedFile);
 
-        const resCreateServiceBasic = await service.createServiceBasic(formData)
+
+        try {
+            const resCreateServiceBasic = await service.createServiceBasic(formData)
+            console.log(resCreateServiceBasic);
+
+        } catch (err) {
+            console.log(err.response.data.res);
+        }
         // setInputs({
         //     nameService: "",
         //     description: "",
@@ -247,6 +254,7 @@ export function Create_Service() {
                         id="Create_Service_title"
                     />
                 </div>
+                <button>aaaa</button>
             </form>
             <button onClick={animationClick}> {"-->"} </button>
             <div>

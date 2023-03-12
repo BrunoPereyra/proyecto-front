@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSearchParams } from "react-router-dom"
-import ReactStars from 'react-rating-stars-component';
 
-
+import {Search_Result_show} from "../../components/Search_Result_show"
+  
 import Post_service from "../../services/service"
 import "../../static/styles/Service/Search_service.css"
 import lupa from "../../static/icons/694985.png"
@@ -130,34 +130,12 @@ export function Search_service() {
                 </div>
             )
         } else {
-            return servicesRef.map(S => {
-                const average = calculateAverage(S.stars)
+            return servicesRef.map(Service => {
+                const average = calculateAverage(Service.stars)
 
-                const idDiv = "Search_Result_divtheimg";
                 return (
-                    <div onClick={() => clickService(S._id)} className="Search_Result_Map" key={S._id}>
-                        <div id={idDiv}>
-                            <img id="Search_Result_img" src={S.image.url} alt="imagen de servicio" />
-                        </div>
-                        <div className="Search_Result_show">
-                            <h2 className="Search_Result_nameservice">{S.nameService}</h2>
-                            <span className="price_content">
-                                <span className="price">$ {S.price}</span>
-                            </span>
-                            <span className="stars_content">
-                                <div className="stars">
-                                    <ReactStars
-                                        count={5}
-                                        size={12}
-                                        activeColor="#ffd700"
-                                        isHalf={true}
-                                        value={average}
-                                        edit={false}
-                                    />
-                                </div>
-                                <span className="stars_amount">{S.stars.length}</span>
-                            </span>
-                        </div>
+                    <div onClick={() => clickService(Service._id)} className="Search_Result_Map" key={Service._id}>
+                       <Search_Result_show average={average} Service={Service}/>
                     </div>
                 )
             })

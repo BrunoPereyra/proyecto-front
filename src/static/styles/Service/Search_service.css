@@ -97,7 +97,9 @@
     border-radius: 10px;
     height: 100px;
 }
-
+.Search_Result_Component{
+    display: flex;
+}
 .price {
     display: flex;
     align-items: center;

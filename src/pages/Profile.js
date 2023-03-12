@@ -2,11 +2,21 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Post_service from "../services/service"
 import "../static/styles/Profile.css"
+import { Search_Result_show } from "../components/Search_Result_show"
 
 export function Profile() {
     const [ProfileData, setProfileData] = useState()
 
     const navigate = useNavigate()
+
+    function calculateAverage(arr) {
+        let suma = 0
+        for (let i = 0; i < arr.length; i++) {
+            suma += arr[i]
+        }
+        const Average = suma / arr.length
+        return Average
+    }
 
     async function profileReq() {
         let loggedUser = window.localStorage.getItem("loggedAppUser")
@@ -31,11 +41,24 @@ export function Profile() {
     function showProfileUser() {
         console.log(ProfileData)
         return typeof (ProfileData) == "object" ?
-            <div id="Profile_div">
+            <div id="Profile_Show_dataUser">
+                <div id="Profile_avatar_contact">
+                    <img id="avatar" src={ProfileData.avatar.url} alt="avatar del usuario" />
+                    <div id="contact">
+                        <h3>contact</h3>
+                    </div>
+                </div>
                 <div id="profile_user">
-                    <span>avatar</span>
                     <h2>{ProfileData.nameUser}</h2>
-                    <h3>{ProfileData.fullName}</h3>
+                    <div>
+                        <h3>{ProfileData.fullName}</h3>
+                        <h1>unido desde</h1>
+                    </div>
+                    <div id="ServiceTheUser">
+                        {ProfileData.servicesSoldUser.map(Service => {
+                            return <Search_Result_show average={calculateAverage(Service.stars)} Service={Service} />
+                        })}
+                    </div>
                 </div>
 
             </div>
