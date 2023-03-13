@@ -74,13 +74,16 @@
     background-color: #ffffffcc;
     box-shadow: 0px 0px 3px 0px #d1efff, 0px 0px 9px 1px #d1efff;
     border-radius: 10px;
-    height: 100px;
+    max-width: 100%;
+    max-height: 100px;
+    min-height: 50px;
     margin: 7px;
     padding: 11px;
 }
 
 #Search_Result_divtheimg {
-    width: 41%;
+    max-width: 142px;
+    min-width: 132px;
     height: auto;
     margin: 2px;
     margin-right: 35px;
@@ -89,7 +92,9 @@
 #Search_Result_img {
     border-radius: 10px;
 }
-
+.Search_Result_nameservice{
+    overflow-wrap: anywhere;
+}
 .Search_Result_show {
     display: flex;
     flex-direction: column;
@@ -97,8 +102,10 @@
     border-radius: 10px;
     height: 100px;
 }
-.Search_Result_Component{
+.Search_Result_Component {
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 .price {
     display: flex;

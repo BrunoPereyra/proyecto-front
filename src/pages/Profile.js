@@ -42,21 +42,25 @@ export function Profile() {
         console.log(ProfileData)
         return typeof (ProfileData) == "object" ?
             <div id="Profile_Show_dataUser">
-                <div id="Profile_avatar_contact">
+                <div id="Profile_Show_dataUser_section1">
                     <img id="avatar" src={ProfileData.avatar.url} alt="avatar del usuario" />
-                    <div id="contact">
+                    <div id="Profile_Show_dataUser_nameUser_otherData">
+                        <h2>{ProfileData.nameUser}</h2>
+                        <div id="Profile_contact_otherData_otherDatadiv">
+                            <h5>{ProfileData.fullName}</h5>
+                            <h5>unido desde</h5>
+                        </div>
+                    </div>
+                </div>
+                <div id="Profile_contact">
+                    <div id="Profile_contact_contactdiv">
                         <h3>contact</h3>
                     </div>
                 </div>
-                <div id="profile_user">
-                    <h2>{ProfileData.nameUser}</h2>
-                    <div>
-                        <h3>{ProfileData.fullName}</h3>
-                        <h1>unido desde</h1>
-                    </div>
+                <div id="profile_user_services">
                     <div id="ServiceTheUser">
                         {ProfileData.servicesSoldUser.map(Service => {
-                            return <Search_Result_show average={calculateAverage(Service.stars)} Service={Service} />
+                            return <Search_Result_show key={Service.id} average={calculateAverage(Service.stars)} Service={Service} />
                         })}
                     </div>
                 </div>

@@ -1,15 +1,79 @@
-#Profile_section{
+#Profile_section {
     display: flex;
     align-items: center;
     width: 100%;
     height: auto;
     justify-content: center;
 }
-#profile_user{
+
+#Profile_Show_dataUser {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px;
+    max-width: 400px;
+}
+
+#Profile_Show_dataUser_section1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
+}
+
+#Profile_Show_dataUser_nameUser_otherData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 17px 0px 17px 0px;
+}
+
+#Profile_Show_dataUser_nameUser_otherData>h2 {
+    text-align: center;
+}
+
+#Profile_contact_otherData_otherDatadiv {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    width: 90%;
-    background-color: azure;
+    text-align: center
+}
+
+#avatar {
+    width: 90px;
+    height: 78px;
+    border-radius: 96px;
+}
+
+#Profile_contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#Profile_contact_contactdiv{
+    display: flex;
+    margin-left: 13px;
+}
+#Profile_contact_contactdiv > h3{
+    width: max-content;
+}
+#Profile_contact_otherData_contactdiv {
+    width: auto;
+    margin-right: 35px;
+}
+
+#ServiceTheUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #d1efff;
+    box-shadow: 0px 0px 3px 0px #d1efff, 0px 0px 9px 1px #d1efff;
+    border-radius: 14px;
+    padding: 10px;
+}
+
+#profile_user_services {
+    display: flex;
 }

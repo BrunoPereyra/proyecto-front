@@ -12,7 +12,7 @@ export function Search_Result_show({ Service, average }) {
                 <img id="Search_Result_img" src={Service.image.url} alt="imagen de servicio" />
             </div>
             <div className="Search_Result_show">
-                <h2 className="Search_Result_nameservice">{Service.nameService}</h2>
+                <h3 className="Search_Result_nameservice">{Service.nameService}</h3>
                 <span className="price_content">
                     <span className="price">$ {Service.price}</span>
                 </span>
