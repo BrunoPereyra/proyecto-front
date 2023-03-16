@@ -2,8 +2,10 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSearchParams } from "react-router-dom"
 
-import {Search_Result_show} from "../../components/Search_Result_show"
-  
+import { Search_Result_show } from "../../components/Search_Result_show"
+import { FeedbackService } from "../../components/FeedbackService"
+
+
 import Post_service from "../../services/service"
 import "../../static/styles/Service/Search_service.css"
 import lupa from "../../static/icons/694985.png"
@@ -109,7 +111,24 @@ export function Search_service() {
         if (serviceId._id) {
             return (
                 <div className="search_result_map_id">
-                    {serviceId.nameService}
+                    <h2>{serviceId.nameService}</h2>
+                    <div className="search_result_map_id_otherData">
+                        <span>perfil</span>
+                        <span>publicado hace</span>
+                    </div>
+                    <div className="search_result_map_id_imgService">
+                        <img src={serviceId.image.url} alt="" />
+                    </div>
+                    <div className="search_result_map_id_ask_about_service">
+                        <h4 >Preguntar</h4>
+                    </div>
+                    <span>${serviceId.price}</span>
+                    <div className="search_result_map_id_description">
+                        <p>{serviceId.description}</p>
+                    </div>
+                    <div className="search_result_map_id_FeedbackService">
+                        <FeedbackService FeedbackServiceData={serviceId.FeedbackService} />
+                    </div>
                 </div>
             )
         } else {
@@ -135,7 +154,7 @@ export function Search_service() {
 
                 return (
                     <div onClick={() => clickService(Service._id)} className="Search_Result_Map" key={Service._id}>
-                       <Search_Result_show average={average} Service={Service}/>
+                        <Search_Result_show average={average} Service={Service} />
                     </div>
                 )
             })

@@ -71,7 +71,11 @@ export function Create_Service() {
             console.log(resCreateServiceBasic);
 
         } catch (err) {
-            console.log(err.response.data.res);
+            if (err.response.data.error == "token invalid or user not exist") {
+                navigate("/login")
+            } else {
+                console.log("ERROR");
+            }
         }
         // setInputs({
         //     nameService: "",

@@ -2,7 +2,10 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Post_service from "../services/service"
 import "../static/styles/Profile.css"
+
+
 import { Search_Result_show } from "../components/Search_Result_show"
+import { FeedbackService } from "../components/FeedbackService"
 
 export function Profile() {
     const [ProfileData, setProfileData] = useState()
@@ -22,14 +25,16 @@ export function Profile() {
         let loggedUser = window.localStorage.getItem("loggedAppUser")
         if (loggedUser) {
             const userStorage = JSON.parse(loggedUser)
-            await Post_service.setToken(userStorage.token)
+            Post_service.setToken(userStorage.token)
 
             Post_service.ProfileGet()
                 .then(res => {
                     setProfileData(res.data.res)
                 }).catch(err => {
                     setProfileData(err)
-                    console.log("Error");
+                    if (err.response.data.error === "token invalid or user not exist") {
+                        navigate("/login")
+                    }
                 })
         } else {
             navigate("/login")
@@ -55,14 +60,18 @@ export function Profile() {
                 <div id="Profile_contact">
                     <div id="Profile_contact_contactdiv">
                         <h3>contact</h3>
+                        <h3>Gmail</h3>
                     </div>
                 </div>
                 <div id="profile_user_services">
-                    <div id="ServiceTheUser">
-                        {ProfileData.servicesSoldUser.map(Service => {
-                            return <Search_Result_show key={Service.id} average={calculateAverage(Service.stars)} Service={Service} />
-                        })}
-                    </div>
+                    {ProfileData.servicesSoldUser.map(Service => {
+                        return <div id="ServiceTheUser" key={Service._id} onClick={() => navigate(`/services?id=${Service._id}`)}>
+                            <Search_Result_show average={calculateAverage(Service.stars)} Service={Service} />
+                        </div>
+                    })}
+                </div>
+                <div>
+                    <FeedbackService FeedbackServiceData={ProfileData.FeedbackService} />
                 </div>
 
             </div>

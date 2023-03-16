@@ -40,9 +40,9 @@
 }
 
 #avatar {
-    width: 90px;
-    height: 78px;
-    border-radius: 96px;
+    width: 75px;
+    height: 67px;
+    border-radius: 34px;
 }
 
 #Profile_contact {
@@ -52,10 +52,12 @@
 }
 #Profile_contact_contactdiv{
     display: flex;
-    margin-left: 13px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
 #Profile_contact_contactdiv > h3{
-    width: max-content;
+    text-align: center;
 }
 #Profile_contact_otherData_contactdiv {
     width: auto;
