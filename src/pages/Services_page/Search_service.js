@@ -108,13 +108,17 @@ export function Search_service() {
         setSearchParams({ id })
     }
     function ShowSearchResultId() {
+        console.log(serviceId);
         if (serviceId._id) {
+            let imageUser = serviceId.User[0].avatar.url
             return (
                 <div className="search_result_map_id">
                     <h2>{serviceId.nameService}</h2>
                     <div className="search_result_map_id_otherData">
-                        <span>perfil</span>
-                        <span>publicado hace</span>
+                        <div className="search_result_map_id_dataTheUserTheService">
+                            <img src={imageUser} alt="" width="100"/>
+                            <h5>{serviceId.User[0].nameUser}</h5>
+                        </div>
                     </div>
                     <div className="search_result_map_id_imgService">
                         <img src={serviceId.image.url} alt="" />

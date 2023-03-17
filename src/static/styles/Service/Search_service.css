@@ -156,12 +156,12 @@
     height: 21px;
     align-items: center;
 }
-
-.search_result_map_id_otherData>span {
-    font-size: 15px;
-    line-height: 130%;
-    /* padding: 8px; */
-    color: #444a60;
+.search_result_map_id_dataTheUserTheService{
+    display: flex;
+}
+.search_result_map_id_dataTheUserTheService > img {
+    width: 100px;
+    border-radius: 60px;
 }
 
 .search_result_map_id_ask_about_service {

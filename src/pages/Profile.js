@@ -43,8 +43,19 @@ export function Profile() {
     useEffect(() => {
         profileReq()
     }, [])
+
+    function dateDifferences(unitedfrom) {
+        let Dateunitedfrom = new Date(unitedfrom);
+
+        let DateunitedfromReturn = `
+        ${Dateunitedfrom.getDay()}/
+        ${Dateunitedfrom.getMonth()}/
+        ${Dateunitedfrom.getFullYear()} 
+        `
+        return DateunitedfromReturn
+    }
+
     function showProfileUser() {
-        console.log(ProfileData)
         return typeof (ProfileData) == "object" ?
             <div id="Profile_Show_dataUser">
                 <div id="Profile_Show_dataUser_section1">
@@ -53,14 +64,29 @@ export function Profile() {
                         <h2>{ProfileData.nameUser}</h2>
                         <div id="Profile_contact_otherData_otherDatadiv">
                             <h5>{ProfileData.fullName}</h5>
-                            <h5>unido desde</h5>
+                            <h5>{dateDifferences(ProfileData.date)}</h5>
                         </div>
                     </div>
                 </div>
+                <div id="Profile_description_user">
+                    <h5>Lorem, ipsum dolor sit amet consectetur
+                        adipisicing elit. Porro dignissimos et
+                        corrupti veniam, quis reprehenderit asper
+                        iores vel? Quos nostrum ipsa deleniti sunt
+                        , sapiente voluptatem, rerum ipsam expedita
+                        nobis explicabo dolorum?
+                    </h5>
+                </div>
                 <div id="Profile_contact">
                     <div id="Profile_contact_contactdiv">
-                        <h3>contact</h3>
-                        <h3>Gmail</h3>
+                        <div className="Profile_contact_contactdiv_specific Profile_contact_contactdiv_specific_Number">
+                            <h3>Number:</h3>
+                             <h4>{}</h4>
+                        </div>
+                        <div className="Profile_contact_contactdiv_specific Profile_contact_contactdiv_specific_Gmail">
+                            <h3>Email:</h3>
+                            <h4>{ProfileData.Email}</h4>
+                        </div>
                     </div>
                 </div>
                 <div id="profile_user_services">
