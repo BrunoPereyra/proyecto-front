@@ -104,7 +104,19 @@ const ProfileGetOther = async (newObject) => {
         )
         return res
 }
+const Onechat = async (newObject) => {
+    const config = {
+        headers: {
+            Authorization: `bearer ${token}`
+        }
+    }
 
+    const res = await axios.get(
+        `${baseUrl}/api/messages?recipientId=${newObject}`,
+        config
+    )
+    return res
+}
 const exportedObject = {
     createUser,
     LoginUser,
@@ -114,5 +126,6 @@ const exportedObject = {
     ProfileGetOther,
     GetNotes,
     createServiceBasic,
+    Onechat
 }
 export default exportedObject
