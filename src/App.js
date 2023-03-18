@@ -12,10 +12,10 @@ import {Create_Service} from "./pages/Services_page/CreateService"
 import { SubscriptioCreate } from "./pages/subscription_page/SubscriptionCreate";
 import { SubscriptioStatus } from "./pages/subscription_page/SubscriptionStatus";
 
-import { Profile } from "./pages/Profile";
+import { Profile } from "./pages/profile/Profile";
+import { ProfileUserOther } from "./pages/profile/ProfileUserOther";
 
 import { Notes } from "./pages/Notes";
-
 
 
 
@@ -40,7 +40,8 @@ function App() {
           <Route path="/SubscriptioCreate" element={<SubscriptioCreate />} />
           <Route path="/SubscriptioStatus" element={<SubscriptioStatus />} />
 
-          <Route path="/Perfil" element={<Profile />} />
+          <Route path="/miPerfil" element={<Profile />} />
+          <Route path="/perfilUser" element={<ProfileUserOther />} />
 
           <Route path="/Notes" element={<Notes />} />
 

@@ -90,6 +90,20 @@ const createServiceBasic = async (formData) => {
         return res
 
 }
+const ProfileGetOther = async (newObject) => {
+
+    const config = {
+        headers: {
+            "Authorization": `bearer ${token}`,
+        }
+    }
+        const res = await axios.post(
+            `${baseUrl}/ProfileGetOther`,
+            newObject,
+            config
+        )
+        return res
+}
 
 const exportedObject = {
     createUser,
@@ -97,7 +111,8 @@ const exportedObject = {
     setToken,
     searchRefService,
     ProfileGet,
+    ProfileGetOther,
     GetNotes,
-    createServiceBasic
+    createServiceBasic,
 }
 export default exportedObject

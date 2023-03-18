@@ -153,15 +153,24 @@
 .search_result_map_id_otherData {
     display: flex;
     flex-direction: row;
-    height: 21px;
+    height: 26px;
     align-items: center;
 }
 .search_result_map_id_dataTheUserTheService{
     display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+}
+.search_result_map_id_dataTheUserTheService > h5{
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
 }
 .search_result_map_id_dataTheUserTheService > img {
-    width: 100px;
-    border-radius: 60px;
+    width: 35px;
+    height: 30px;
+    border-radius: 95px;
 }
 
 .search_result_map_id_ask_about_service {

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import Post_service from "../services/service"
-import "../static/styles/Profile.css"
+import Post_service from "../../services/service"
+import "../../static/styles/Profile.css"
 
 
-import { Search_Result_show } from "../components/Search_Result_show"
-import { FeedbackService } from "../components/FeedbackService"
+import { Search_Result_show } from "../../components/Search_Result_show"
+import { FeedbackService } from "../../components/FeedbackService"
 
 export function Profile() {
     const [ProfileData, setProfileData] = useState()

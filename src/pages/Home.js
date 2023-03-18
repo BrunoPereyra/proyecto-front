@@ -47,7 +47,7 @@ export function Home() {
                             <ul id="profile_menu" className='active'>
                                 <div onClick={toggleMenu} id="img_perfil_home_ul">P</div>
                                 <li><Link to="/SubscriptioCreate">Subscriptio</Link></li>
-                                <li><Link to="/Perfil">Perfil</Link></li>
+                                <li><Link to="/miPerfil">Perfil</Link></li>
                                 <li><Link to="/serviceCreate">crear servicio</Link> </li>
                             </ul>
                         )}
@@ -74,7 +74,7 @@ export function Home() {
                 </div>
             </div>
             <div id="according_last_search">
-                <h3>según últimas búsqueda</h3>
+                <h3>sevicios de barrio</h3>
                 <div>
 
                 </div>

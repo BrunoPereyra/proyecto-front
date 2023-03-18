@@ -7,6 +7,7 @@ import { FeedbackService } from "../../components/FeedbackService"
 
 
 import Post_service from "../../services/service"
+
 import "../../static/styles/Service/Search_service.css"
 import lupa from "../../static/icons/694985.png"
 
@@ -109,6 +110,9 @@ export function Search_service() {
     }
     function ShowSearchResultId() {
         console.log(serviceId);
+
+        //    const ProfileLink = await Post_service.ProfileGetOther(serviceId.User[0]._id)
+
         if (serviceId._id) {
             let imageUser = serviceId.User[0].avatar.url
             return (
@@ -116,8 +120,8 @@ export function Search_service() {
                     <h2>{serviceId.nameService}</h2>
                     <div className="search_result_map_id_otherData">
                         <div className="search_result_map_id_dataTheUserTheService">
-                            <img src={imageUser} alt="" width="100"/>
-                            <h5>{serviceId.User[0].nameUser}</h5>
+                            <img src={imageUser} alt="" width="100" />
+                            <h5 onClick={() => navigate(`/perfilUser?idUserProfile=${serviceId.User[0]._id}`)} >{serviceId.User[0].nameUser}</h5>
                         </div>
                     </div>
                     <div className="search_result_map_id_imgService">
