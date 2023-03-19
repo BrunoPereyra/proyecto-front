@@ -4,3 +4,8 @@
     width: 200px;
     height: 200px;
 }
+.conversation{
+    display: flex;
+    flex-direction: column;
+    height: 302px;
+}

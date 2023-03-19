@@ -15,7 +15,7 @@ import { SubscriptioStatus } from "./pages/subscription_page/SubscriptionStatus"
 import { Profile } from "./pages/profile/Profile";
 import { ProfileUserOther } from "./pages/profile/ProfileUserOther";
 
-import { ConnectionChatbetweenUserAB } from "./pages/chat/ConnectionChatbetweenUserAB";
+import { Chats } from "./pages/chat/Chats";
 
 import { Notes } from "./pages/Notes";
 
@@ -45,7 +45,7 @@ function App() {
 
           <Route path="/Notes" element={<Notes />} />
 
-          <Route path="/chat" element={<ConnectionChatbetweenUserAB />} />
+          <Route path="/chat" element={<Chats />} />
 
 
           {/* <Route path="/service" element={<Error404 />} /> */}

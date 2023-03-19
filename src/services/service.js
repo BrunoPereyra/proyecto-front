@@ -13,12 +13,12 @@ const createUser = async (formData) => {
             "Content-Type": 'multipart/form-data'
         }
     }
-        const res = await axios.post(
-            `${baseUrl}/signup`,
-            formData,
-            config
-        )
-        return res
+    const res = await axios.post(
+        `${baseUrl}/signup`,
+        formData,
+        config
+    )
+    return res
 }
 const LoginUser = async (newObject) => {
     const config = {
@@ -82,12 +82,12 @@ const createServiceBasic = async (formData) => {
             "Content-Type": 'multipart/form-data'
         }
     }
-        const res = await axios.post(
-            `${baseUrl}/createServiceBasic`,
-            formData,
-            config
-        )
-        return res
+    const res = await axios.post(
+        `${baseUrl}/createServiceBasic`,
+        formData,
+        config
+    )
+    return res
 
 }
 const ProfileGetOther = async (newObject) => {
@@ -97,12 +97,12 @@ const ProfileGetOther = async (newObject) => {
             "Authorization": `bearer ${token}`,
         }
     }
-        const res = await axios.post(
-            `${baseUrl}/ProfileGetOther`,
-            newObject,
-            config
-        )
-        return res
+    const res = await axios.post(
+        `${baseUrl}/ProfileGetOther`,
+        newObject,
+        config
+    )
+    return res
 }
 const Onechat = async (newObject) => {
     const config = {
@@ -110,9 +110,20 @@ const Onechat = async (newObject) => {
             Authorization: `bearer ${token}`
         }
     }
-
     const res = await axios.get(
         `${baseUrl}/api/messages?recipientId=${newObject}`,
+        config
+    )
+    return res
+}
+const GetAllChats = async () => {
+    const config = {
+        headers: {
+            Authorization: `bearer ${token}`
+        }
+    }
+    const res = await axios.get(
+        `${baseUrl}/GetAllChats`,
         config
     )
     return res
@@ -126,6 +137,7 @@ const exportedObject = {
     ProfileGetOther,
     GetNotes,
     createServiceBasic,
-    Onechat
+    Onechat,
+    GetAllChats
 }
 export default exportedObject
