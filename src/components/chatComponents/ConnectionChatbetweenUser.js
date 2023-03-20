@@ -10,13 +10,32 @@ export function ConnectionChatbetweenUserAB({ OnechatId }) {
   const [message, setMessage] = useState('');
   const [userId, setUserId] = useState('');
   const navigate = useNavigate()
-
+  
   const socket = io('http://localhost:3001', {
     query: { userId } // reemplazar 'user-id' por el id del usuario actual
   });
-
+  
+  async function getChat() {
+    try {
+      const Messagesdata = await service.Onechat(OnechatId)
+      console.log(Messagesdata);
+      
+      setMessages(Messagesdata.data)
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  socket.on('message', async (message) => {
+    console.log("---------------------")
+    setMessages([
+      ...messages,
+      message
+    ])
+  })
   useEffect(() => {
     let loggedUser = window.localStorage.getItem("loggedAppUser")
+    
     if (loggedUser) {
       const userStorage = JSON.parse(loggedUser)
       setUserId(userStorage.id)
@@ -24,27 +43,14 @@ export function ConnectionChatbetweenUserAB({ OnechatId }) {
     } else {
       navigate("/login")
     }
-    async function getChat() {
-      try {
-        const Messagesdata = await service.Onechat(OnechatId)
-        console.log(Messagesdata);
-        
-        setMessages(Messagesdata.data)
-
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    
     getChat()
+    
   }, [])
+  
 
   const sendMessage = async () => {
-    socket.emit('message', message, OnechatId); // enviar el mensaje al destinatario 'recipient-id'
-    setMessages([
-      ...messages,
-      message
-    ])
-
+    socket.emit('message_destinatario', message, OnechatId)
     setMessage('');
   };
   function HandleSubmit(e) {

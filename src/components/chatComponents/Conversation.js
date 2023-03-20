@@ -3,9 +3,12 @@ import Message from './Message';
 
 const Conversation = ({ messages }) => {
   return (
-    <div className="conversation">
-      {messages.map((message) => (
-        <Message key={message._id} text={message.text} sender={message.sender} />
+    <div key={messages.length} className="conversation">
+      {messages.map((message) =>
+      (
+        <div key={message._id}>
+          <Message text={message.text} sender={message.sender} />
+        </div>
       ))}
     </div>
   );
