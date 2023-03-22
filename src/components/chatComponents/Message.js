@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import "../../static/styles/chat/Messages.css"
 
-const Message = ({ text, sender }) => {
+const Message = ({ text, classMessage }) => {
+
   return (
     <div className="message">
-      {text}
+      <span className={classMessage}>
+        <p>
+          {text}
+        </p>
+      </span>
     </div>
   );
 };

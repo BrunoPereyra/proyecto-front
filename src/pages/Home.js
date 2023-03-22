@@ -82,7 +82,9 @@ export function Home() {
             <nav id="nav_home">
                 <div id="nav_div_home">
                     <img src={home} className="iconHome" alt="Icon home" />
+                <Link to="/chat">
                     <img src={msj} className="iconHome" alt="Icon msj" />
+                </Link>
                 </div>
             </nav>
         </section>

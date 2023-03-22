@@ -14,7 +14,14 @@ export function ConnectionChatbetweenUserAB({ OnechatId }) {
   const socket = io('http://localhost:3001', {
     query: { userId } // reemplazar 'user-id' por el id del usuario actual
   });
-  
+  if (socket.recovered) {
+    // recovery was successful: socket.id, socket.rooms and socket.data were restored
+    console.log("seccion recuperada");
+} else {
+    // new or unrecoverable session
+    console.log("seccion perdida ");
+
+}
   async function getChat() {
     try {
       const Messagesdata = await service.Onechat(OnechatId)
@@ -45,7 +52,7 @@ export function ConnectionChatbetweenUserAB({ OnechatId }) {
     }
     
     getChat()
-    
+
   }, [])
   
 
@@ -62,8 +69,8 @@ export function ConnectionChatbetweenUserAB({ OnechatId }) {
   }
   return (
     <div className="ConnectionChatbetweenUserAB">
-      <Conversation messages={messages} />
-      <form onSubmit={HandleSubmit}>
+      <Conversation userId={userId} messages={messages} />
+      <form className='ConnectionChatbetweenUserAB_form' onSubmit={HandleSubmit}>
         <input
           type="text"
           value={message}
