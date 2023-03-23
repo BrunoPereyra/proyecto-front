@@ -6,11 +6,11 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 
-import { Search_service } from "./pages/Services_page/Search_service";
-import { Create_Service } from "./pages/Services_page/CreateService"
+import { Search_service } from "./pages/ServicesTheUser/Search_service";
+import { Create_Service } from "./pages/ServicesTheUser/ServiceCreation/CreateService"
 
-import { SubscriptioCreate } from "./pages/subscription_page/SubscriptionCreate";
-import { SubscriptioStatus } from "./pages/subscription_page/SubscriptionStatus";
+import { SubscriptioCreate } from "./pages/payments/subscription/SubscriptionCreate";
+import { SubscriptioStatus } from "./pages/payments/subscription/SubscriptionStatus";
 
 import { Profile } from "./pages/profile/Profile";
 import { ProfileUserOther } from "./pages/profile/ProfileUserOther";

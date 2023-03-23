@@ -58,3 +58,59 @@
     width: max-content;
     height: max-content;
 }
+
+.Create_Service_v2_agregarServicio_button {
+    width: max-content;
+    height: max-content;
+}
+
+#Create_Service_v2_table {
+    border-collapse: collapse;
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Create_Service_v2_thead_fixed {
+    height: max-content;
+}
+
+.th_table_servicio {
+    width: 90px;
+}
+
+.th_table {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.th_table>input {
+    border: none;
+}
+
+.th_table>input[name="servicio"] {
+    border: none;
+    width: 55px;
+}
+.th_table>input[name="descripcion"] {
+    border: none;
+    width: 100%;
+}
+.th_table>input[name="precio"] {
+    border: none;
+    width: 41px;
+}
+.th_table>input[name="tiempoEntrega"] {
+    border: none;
+    width: 55px;
+}
+.th_table>button{
+    border: none;
+    width: 60px;
+}
+tbody {
+    height: max-content;
+}

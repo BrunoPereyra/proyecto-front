@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import Subscription from "../../services/Subscription"
+import Subscription from "../../../services/Subscription"
 import { useSearchParams } from "react-router-dom"
-import "../../static/styles/subscription/SubscriptioStatus.css"
-
+import "../../../static/styles/subscription/SubscriptionStatus.css"
 
 export function SubscriptioStatus() {
     const [searchParams] = useSearchParams()

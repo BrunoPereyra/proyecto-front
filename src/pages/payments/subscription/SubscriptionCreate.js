@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 // import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom"
-import SubscriptionService from "../../services/Subscription"
+import SubscriptionService from "../../../services/Subscription"
 
-import "../../static/styles/subscription/SubscriptionCreate.css"
+import "../../../static/styles/subscription/SubscriptionCreate.css"
 
 
 export function SubscriptioCreate() {
