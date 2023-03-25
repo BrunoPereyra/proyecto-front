@@ -68,13 +68,18 @@
     border-collapse: collapse;
     width: 94%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .Create_Service_v2_thead_fixed {
+    display: flex;
     height: max-content;
+    flex-direction: column;
 }
-
+.Create_Service_v2_thead_fixed > tr {
+    display: flex;
+    flex-direction: column;
+}
 .th_table_servicio {
     width: 90px;
 }
@@ -85,13 +90,18 @@
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    width: auto;
 }
-
+.FilaServicio{
+    display: flex;
+    flex-direction: column;
+}
 .th_table>input {
+    width: auto;
     border: none;
 }
 
-.th_table>input[name="servicio"] {
+/* .th_table>input[name="servicio"] {
     border: none;
     width: 55px;
 }
@@ -109,8 +119,8 @@
 }
 .th_table>button{
     border: none;
-    width: 60px;
-}
+    width: 60px; */
+/* } */
 tbody {
     height: max-content;
 }
